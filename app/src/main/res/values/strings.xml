@@ -1,0 +1,37 @@
+<resources>
+    <string name="app_name">FootPrint</string>
+    <string name="action_settings">Settings</string>
+
+    <!-- toolbar�̃^�C�g��-->
+    <string name="title_activity_edit">Edit</string>
+    <string name="title_activity_gallary">Gallery</string>
+    <string name="title_activity_detail">Detail</string>
+
+    <!-- ���j���[�A�C�e��-->
+    <string name="menu_item_share">Share</string>
+    <string name="menu_item_ticker">Ticker</string>
+    <string name="menu_item_delete">Delete</string>
+    <string name="menu_item_edit">Edit</string>
+    <string name="menu_item_camera">Take Pic</string>
+
+    <!-- �e���b�v -->
+    <string name="check_map">Press lower right button to see the location on the map.</string>
+
+    <!-- �p�[�~�b�V�����̋������߂闝�R -->
+    <string name="permission_request_title">Need Permisson</string>
+    <string name="permission_request_message">Need Permisson for taking pictures with this app.</string>
+    <string name="admit">Admit Permission</string>
+    <string name="reject">Reject Permission</string>
+
+    <!-- �g�[�X�g -->
+    <string name="cannot_go_any_further">Cannot go any further.</string>
+    <string name="shoot_failed">Photo Shooting Failed. Try Again.</string>
+    <string name="location_get">Get Location Succeeded</string>
+    <string name="location_not_set">Location info being set. Please wait.</string>
+    <string name="photo_info_written">Photo Info Written.</string>
+    <string name="photo_info_deleted">Photo Info Deleted.</string>
+
+    <!--�摜�̃V�F�A -->
+    <string name="share_photo">Share this photo.</string>
+
+</resources>
