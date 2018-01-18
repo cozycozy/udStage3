@@ -5,20 +5,20 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
-import com.google.android.gms.maps.GoogleMap
-import com.google.android.gms.maps.MapFragment
-import com.google.android.gms.maps.OnMapReadyCallback
+import com.google.android.gms.maps.*
+import com.google.android.gms.maps.model.CameraPosition
 import com.google.android.gms.maps.model.LatLng
+import com.google.android.gms.maps.model.Marker
 import com.google.android.gms.maps.model.MarkerOptions
 import io.realm.Realm
 import io.realm.RealmResults
 import kotlin_challenge.test.co.jp.footprint.common.IntentKey
 import kotlin_challenge.test.co.jp.footprint.common.ModeInEdit
+import kotlin_challenge.test.co.jp.footprint.common.ZOOM_LEVEL_MASTER
 import kotlin_challenge.test.co.jp.footprint.model.PhotoInfo
 import kotlinx.android.synthetic.main.activity_main.*
 
-class MainActivity : AppCompatActivity(), OnMapReadyCallback {
-
+class MainActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarkerClickListener {
 
     lateinit var mapFragment : MapFragment
 
@@ -71,7 +71,24 @@ class MainActivity : AppCompatActivity(), OnMapReadyCallback {
             setUpLocationMakers(map)
         }
 
+        map.setOnMarkerClickListener(this)
+
     }
+
+    // マーカーのクリックリスナー CallBackメソッド
+    override fun onMarkerClick(marker: Marker): Boolean {
+
+        val postion = marker.position
+
+        val intent = Intent(this@MainActivity,GallaryActivity::class.java).apply {
+            putExtra(IntentKey.LATITUDE.name, postion.latitude)
+            putExtra(IntentKey.LONGITUDE.name, postion.longitude)
+        }
+        startActivity(intent)
+        return true
+
+    }
+
 
     private fun setUpLocationMakers(map : GoogleMap) {
 
@@ -93,6 +110,12 @@ class MainActivity : AppCompatActivity(), OnMapReadyCallback {
 
         }
 
+        val cameraPosition = CameraPosition.builder()
+                .target(LatLng(locationList[lastIndexOfLocationList].latitude,
+                        locationList[lastIndexOfLocationList].longitude))
+                .zoom(ZOOM_LEVEL_MASTER.toFloat())
+                .build()
+        map.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition))
     }
 
 

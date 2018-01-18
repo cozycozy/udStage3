@@ -9,7 +9,7 @@ enum class ModeInEdit {
 }
 
 enum class IntentKey {
-    EDIT_MODE, CONTENT_URI
+    EDIT_MODE, CONTENT_URI, LATITUDE, LONGITUDE
 }
 
 //パーミッションの許可を求めるためのリクエストコード
@@ -22,3 +22,4 @@ val PHOTO_FOLDER_NAME = "FOOTPRINT"
 val RQ_CODE_CAMERA : Int = 100
 
 val ZOOM_LEVEL : Int = 15
+val ZOOM_LEVEL_MASTER  = 5
